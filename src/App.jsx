@@ -5,6 +5,9 @@ import viteLogo from './assets/vite.svg'
 import './App.css'
 import Basics from './Components/BasicsComp'
 import UseStateHook from './Components/UseStateHook'
+import PropsParent from './Components/PropsParent'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Routing from './Components/Routing'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -13,8 +16,20 @@ function App() {
     <>
       <h1>My React Page</h1>
       
-<Basics></Basics>
+{/* <Basics></Basics>
 <UseStateHook />
+<PropsParent /> */}
+
+<BrowserRouter>
+<Routes>
+  <Route path='/'  element={<Routing />}></Route>
+  <Route path='/basics' element={<Basics/>} ></Route>
+  <Route path='/usestate' element={<UseStateHook />}></Route>
+  <Route path='/props' element={<PropsParent />}></Route>
+
+</Routes>
+
+</BrowserRouter>
 
     </>
   )
